@@ -11,8 +11,8 @@
     <RootNamespace>ELFSharp</RootNamespace>
     <AssemblyName>ELFSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <SignAssembly>true</SignAssembly>
-    <DelaySign>true</DelaySign>
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>false</DelaySign>
     <AssemblyOriginatorKeyFile>ELFSharp.public.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -49,6 +49,8 @@
     <Compile Include="ELF\FileType.cs" />
     <Compile Include="ELF\IELF.cs" />
     <Compile Include="ELF\Machine.cs" />
+    <Compile Include="ELF\Segments\FileTable.cs" />
+    <Compile Include="ELF\Segments\NoteSegment.cs" />
     <Compile Include="ELF\Utilities.cs" />
     <Compile Include="ELF\Sections\INoteSection.cs" />
     <Compile Include="ELF\Sections\IProgBitsSection.cs" />

@@ -47,6 +47,16 @@ namespace ELFSharp.ELF.Segments
             }
         }
 
+        public X GetParsedContents<X>() where X : class
+        {
+            if(typeof(X) == typeof(NoteSegment) && (Type == SegmentType.Note))
+            {
+                return new NoteSegment(offset, readerSource) as X;
+            }
+
+            return null;
+        }
+
         public byte[] GetRawHeader()
         {
             using(var reader = ObtainReader(headerOffset))

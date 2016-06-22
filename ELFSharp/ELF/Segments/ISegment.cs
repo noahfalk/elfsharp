@@ -5,6 +5,7 @@ namespace ELFSharp.ELF.Segments
         SegmentType Type { get; }
         SegmentFlags Flags { get; }
         byte[] GetContents();
+        T GetParsedContents<T>() where T : class;
         byte[] GetRawHeader();
     }
 }
