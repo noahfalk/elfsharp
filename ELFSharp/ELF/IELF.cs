@@ -22,6 +22,7 @@ namespace ELFSharp.ELF
         ISection GetSection(string name);
         bool TryGetSection(int index, out ISection section);
         ISection GetSection(int index);
+        bool TryVMToFile(ulong vmAddress, out ulong fileAddress);
     }
 }
 

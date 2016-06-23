@@ -50,6 +50,7 @@
     <Compile Include="ELF\IELF.cs" />
     <Compile Include="ELF\Machine.cs" />
     <Compile Include="ELF\Segments\FileTable.cs" />
+    <Compile Include="ELF\Segments\NoteList.cs" />
     <Compile Include="ELF\Segments\NoteSegment.cs" />
     <Compile Include="ELF\Utilities.cs" />
     <Compile Include="ELF\Sections\INoteSection.cs" />

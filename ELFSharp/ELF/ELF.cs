@@ -173,6 +173,30 @@ namespace ELFSharp.ELF
             return GetSection(index);
         }
 
+        public bool TryVMToFile(ulong vmAddress, out ulong fileAddress)
+        {
+            foreach(Segment<T> s in Segments)
+            {
+                if(s.Type != SegmentType.Load)
+                {
+                    continue;
+                }
+                if (s.Address.To<ulong>() <= vmAddress &&
+                    vmAddress <= s.Address.To<ulong>() + s.Size.To<ulong>())
+                {
+                    ulong offset = vmAddress - s.Address.To<ulong>();
+                    if(offset > (ulong)s.FileSize)
+                    {
+                        continue; // zeroed memory
+                    }
+                    fileAddress = s.offset.To<ulong>() + offset;
+                    return true;
+                }
+            }
+            fileAddress = 0;
+            return false;
+        }
+
         private Section<T> GetSectionFromSectionHeader(SectionHeader header)
         {
             Section<T> returned;

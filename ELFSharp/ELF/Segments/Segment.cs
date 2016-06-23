@@ -49,9 +49,9 @@ namespace ELFSharp.ELF.Segments
 
         public X GetParsedContents<X>() where X : class
         {
-            if(typeof(X) == typeof(NoteSegment) && (Type == SegmentType.Note))
+            if (typeof(X) == typeof(NoteList) && (Type == SegmentType.Note))
             {
-                return new NoteSegment(offset, readerSource) as X;
+                return new NoteList(offset, FileSize, readerSource) as X;
             }
 
             return null;
@@ -102,7 +102,7 @@ namespace ELFSharp.ELF.Segments
 
         private long headerOffset;
         private Class elfClass;
-        private long offset;
+        public long offset;
         private Func<EndianBinaryReader> readerSource;
     }
 }
